@@ -1,34 +1,34 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AcademicYearsModule } from './academic-years/academic-years.module';
-import { AssignmentsModule } from './assignments/assignments.module';
-import { CoursesModule } from './courses/courses.module';
-import { EnrollmentsModule } from './enrollments/enrollments.module';
-import { ExtracurricularActivitiesModule } from './extracurricular-activities/extracurricular-activities.module';
-import { GradesModule } from './grades/grades.module';
-import { PaymentsModule } from './payments/payments.module';
-import { PaymentStatusesModule } from './payment-statuses/payment-statuses.module';
-import { RolesModule } from './roles/roles.module';
-import { SubjectsModule } from './subjects/subjects.module';
-import { UsersModule } from './users/users.module';
-import { AcademicYear } from './academic-years/entities/academic-year.entity';
-import { Assignment } from './assignments/entities/assignment.entity';
-import { Course } from './courses/entities/course.entity';
-import { Enrollment } from './enrollments/entities/enrollment.entity';
-import { ExtracurricularActivity } from './extracurricular-activities/entities/extracurricular-activity.entity';
-import { Grade } from './grades/entities/grade.entity';
-import { Payment } from './payments/entities/payment.entity';
-import { PaymentStatus } from './payment-statuses/entities/payment-status.entity';
-import { Role } from './roles/entities/role.entity';
-import { Subject } from './subjects/entities/subject.entity';
-import { User } from './users/entities/user.entity';
-import { AuthModule } from './auth/auth.module';
-import { UserProfilesModule } from './user-profiles/user-profiles.module';
-import { UserLogsModule } from './user-logs/user-logs.module';
-import { UserProfile } from './user-profiles/entities/user-profile.entity';
-import { UserLog } from './user-logs/entities/user-log.entity';
-import { SchoolsModule } from './schools/schools.module';
-import { School } from './schools/entities/school.entity';
+import { AcademicYearsModule } from 'src/academic-years/academic-years.module';
+import { AssignmentsModule } from 'src/assignments/assignments.module';
+import { CoursesModule } from 'src/courses/courses.module';
+import { EnrollmentsModule } from 'src/enrollments/enrollments.module';
+import { ExtracurricularActivitiesModule } from 'src/extracurricular-activities/extracurricular-activities.module';
+import { GradesModule } from 'src/grades/grades.module';
+import { PaymentsModule } from 'src/payments/payments.module';
+import { PaymentStatusesModule } from 'src/payment-statuses/payment-statuses.module';
+import { RolesModule } from 'src/roles/roles.module';
+import { SubjectsModule } from 'src/subjects/subjects.module';
+import { UsersModule } from 'src/users/users.module';
+import { AcademicYear } from 'src/academic-years/entities/academic-year.entity';
+import { Assignment } from 'src/assignments/entities/assignment.entity';
+import { Course } from 'src/courses/entities/course.entity';
+import { Enrollment } from 'src/enrollments/entities/enrollment.entity';
+import { ExtracurricularActivity } from 'src/extracurricular-activities/entities/extracurricular-activity.entity';
+import { Grade } from 'src/grades/entities/grade.entity';
+import { Payment } from 'src/payments/entities/payment.entity';
+import { PaymentStatus } from 'src/payment-statuses/entities/payment-status.entity';
+import { Role } from 'src/roles/entities/role.entity';
+import { Subject } from 'src/subjects/entities/subject.entity';
+import { User } from 'src/users/entities/user.entity';
+import { AuthModule } from 'src/auth/auth.module';
+import { UserProfilesModule } from 'src/user-profiles/user-profiles.module';
+import { UserLogsModule } from 'src/user-logs/user-logs.module';
+import { UserProfile } from 'src/user-profiles/entities/user-profile.entity';
+import { UserLog } from 'src/user-logs/entities/user-log.entity';
+import { SchoolsModule } from 'src/schools/schools.module';
+import { School } from 'src/schools/entities/school.entity';
 
 @Module({
   imports: [
@@ -48,11 +48,11 @@ import { School } from './schools/entities/school.entity';
         Payment,
         PaymentStatus,
         Role,
+        School,
         Subject,
         User,
         UserProfile,
         UserLog,
-        School,
       ],
       database: 'postgres',
       synchronize: true,
@@ -68,11 +68,11 @@ import { School } from './schools/entities/school.entity';
     PaymentsModule,
     PaymentStatusesModule,
     RolesModule,
+    SchoolsModule,
     SubjectsModule,
     UsersModule,
     UserProfilesModule,
     UserLogsModule,
-    SchoolsModule,
   ],
 })
 export class AppModule {

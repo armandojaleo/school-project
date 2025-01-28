@@ -15,6 +15,7 @@ import { Grade } from 'src/grades/entities/grade.entity';
 import { Payment } from 'src/payments/entities/payment.entity';
 import { UserProfile } from 'src/user-profiles/entities/user-profile.entity';
 import { UserLog } from 'src/user-logs/entities/user-log.entity';
+import { School } from 'src/schools/entities/school.entity';
 
 @Entity('users')
 export class User {
@@ -83,6 +84,9 @@ export class User {
 
   @OneToMany(() => UserLog, (log) => log.user) // Relación con user_logs
   logs: UserLog[];
+
+  @ManyToOne(() => School, (school) => school.users)
+  school: School;
 
   @Column({
     name: 'created_at',

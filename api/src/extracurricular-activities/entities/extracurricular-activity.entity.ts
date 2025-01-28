@@ -5,10 +5,12 @@ import {
   ManyToOne,
   OneToMany,
   JoinColumn,
+  ManyToMany,
 } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 import { Course } from 'src/courses/entities/course.entity';
 import { Payment } from 'src/payments/entities/payment.entity';
+import { School } from 'src/schools/entities/school.entity';
 
 @Entity('extracurricular_activities')
 export class ExtracurricularActivity {
@@ -72,6 +74,9 @@ export class ExtracurricularActivity {
     description: 'The payments associated with this activity',
   })
   payments: Payment[];
+
+  @ManyToMany(() => School, (school) => school.extracurricularActivities)
+  schools: School[];
 
   @Column({
     name: 'created_at',

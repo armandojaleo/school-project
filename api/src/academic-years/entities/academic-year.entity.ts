@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 import { Course } from 'src/courses/entities/course.entity';
 import { Subject } from 'src/subjects/entities/subject.entity';
+import { School } from 'src/schools/entities/school.entity';
 
 @Entity('academic_years')
 export class AcademicYear {
@@ -29,6 +30,9 @@ export class AcademicYear {
     description: 'The courses associated with the academic year',
   })
   courses: Course[];
+
+  @ManyToOne(() => School, (school) => school.academicYears)
+  school: School;
 
   @Column({
     name: 'created_at',

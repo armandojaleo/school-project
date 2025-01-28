@@ -12,6 +12,7 @@ import { Assignment } from 'src/assignments/entities/assignment.entity';
 import { Subject } from 'src/subjects/entities/subject.entity';
 import { Enrollment } from 'src/enrollments/entities/enrollment.entity';
 import { ExtracurricularActivity } from 'src/extracurricular-activities/entities/extracurricular-activity.entity';
+import { School } from 'src/schools/entities/school.entity';
 
 @Entity('courses')
 export class Course {
@@ -64,6 +65,9 @@ export class Course {
     description: 'The extracurricular activities associated with the course',
   })
   extracurricularActivities: ExtracurricularActivity[];
+
+  @ManyToOne(() => School, (school) => school.courses)
+  school: School;
 
   @Column({
     name: 'created_at',
